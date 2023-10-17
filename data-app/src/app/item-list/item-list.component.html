@@ -1,0 +1,12 @@
+<input [(ngModel)]="newItem" placeholder="Add a new item">
+<button (click)="addItem()">Add</button>
+
+<ul>
+  <li *ngFor="let item of items">
+    <input [(ngModel)]="editedItem" *ngIf="item === editingItem" (keyup.enter)="saveItem(item)" (blur)="saveItem(item)">
+    <span *ngIf="item !== editingItem">{{ item }}</span>
+    <button (click)="editItem(item)">Edit</button>
+    
+    <button (click)="removeItem(item)">Remove</button>
+  </li>
+</ul>
